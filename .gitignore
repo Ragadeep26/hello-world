@@ -1,0 +1,15 @@
+*.pyc
+.vscode/
+common/PATHS.py
+build/
+dist/
+common/__pycache__/
+gui/__pycache__/
+plaxman/__pycache__/
+sensiman/__pycache__/
+backman/__pycache__/
+optiman/__pycache__/
+plaxis2d/__pycache__/
+dimensioning/__pycache__/
+report/__pycache__/
+ERROR_LOG.txt

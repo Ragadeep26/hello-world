@@ -1,0 +1,71 @@
+# Main window
+pyuic5 -x -o gui_main_ui.py gui_main.ui
+
+# Text edit
+pyuic5 -x -o gui_text_edit_ui.py gui_text_edit.ui
+
+# Dialogs
+pyuic5 -x -o gui_dialog_edit_soil_HS_ui.py gui_dialog_edit_soil_HS.ui
+pyuic5 -x -o gui_dialog_edit_soil_HSsmall_ui.py gui_dialog_edit_soil_HSsmall.ui
+pyuic5 -x -o gui_dialog_edit_soil_MC_ui.py gui_dialog_edit_soil_MC.ui
+pyuic5 -x -o gui_dialog_edit_soil_LE_ui.py gui_dialog_edit_soil_LE.ui
+pyuic5 -x -o gui_dialog_edit_all_soils_ui.py gui_dialog_edit_all_soils.ui
+pyuic5 -x -o gui_dialog_edit_all_layers_ui.py gui_dialog_edit_all_layers.ui
+
+pyuic5 -x -o gui_dialog_edit_wall_Dwall_ui.py gui_dialog_edit_wall_Dwall.ui
+pyuic5 -x -o gui_dialog_edit_wall_SPW_ui.py gui_dialog_edit_wall_SPW.ui
+pyuic5 -x -o gui_dialog_edit_wall_CPW_ui.py gui_dialog_edit_wall_CPW.ui
+pyuic5 -x -o gui_dialog_edit_wall_Steel_profile_ui.py gui_dialog_edit_wall_Steel_profile.ui
+pyuic5 -x -o gui_dialog_edit_wall_MIPwall_ui.py gui_dialog_edit_wall_MIPwall.ui
+
+pyuic5 -x -o gui_dialog_edit_Stone_columns_ui.py gui_dialog_edit_Stone_columns.ui
+pyuic5 -x -o gui_widget_StoneColumns_SoilClusters_ui.py gui_widget_StoneColumns_SoilClusters.ui 
+pyuic5 -x -o gui_form_CMC.py gui_form_CMC.ui
+pyuic5 -x -o gui_widget_FDC_SoilClusters_ui.py gui_widget_FDC_SoilClusters.ui 
+
+pyuic5 -x -o gui_dialog_edit_strand_ui.py gui_dialog_edit_strand.ui
+pyuic5 -x -o gui_dialog_edit_grout_Linear_ui.py gui_dialog_edit_grout_Linear.ui
+pyuic5 -x -o gui_dialog_edit_grout_Multilinear_ui.py gui_dialog_edit_grout_Multilinear.ui
+
+pyuic5 -x -o gui_dialog_edit_strut_Steel_tube_ui.py gui_dialog_edit_strut_Steel_tube.ui
+pyuic5 -x -o gui_dialog_edit_strut_RC_bar_ui.py gui_dialog_edit_strut_RC_bar.ui
+pyuic5 -x -o gui_dialog_edit_strut_RC_slab_ui.py gui_dialog_edit_strut_RC_slab.ui
+
+pyuic5 -x -o gui_dialog_edit_points_free_polygon.py gui_dialog_edit_points_free_polygon.ui
+
+pyuic5 -x -o gui_dialog_select_design_variables_groundanchor.py gui_dialog_select_design_variables_groundanchor.ui
+pyuic5 -x -o gui_dialog_select_design_variables_strut.py gui_dialog_select_design_variables_strut.ui
+pyuic5 -x -o gui_dialog_select_design_variables_stone_columns.py gui_dialog_select_design_variables_stone_columns.ui
+pyuic5 -x -o gui_dialog_select_design_variables_rigid_inclusions.py gui_dialog_select_design_variables_rigid_inclusions.ui
+pyuic5 -x -o gui_dialog_select_phases.py gui_dialog_select_phases.ui
+
+# Output Widgets
+pyuic5 -x -o gui_form_output_Wall_ui.py gui_form_output_Wall.ui
+pyuic5 -x -o gui_form_output_Soilsection_settlement_ui.py gui_form_output_Soilsection_settlement.ui
+pyuic5 -x -o gui_form_Pareto_front_explorer.py gui_form_Pareto_front_explorer.ui
+pyuic5 -x -o gui_form_output_Wall_Plaxis3D_ui.py gui_form_output_Wall_Plaxis3D.ui
+
+# Frames
+pyuic5 -x -o gui_form_metamodel_validation_view.py gui_form_metamodel_validation_view.ui
+pyuic5 -o gui_form_metamodel_prediction.py gui_form_metamodel_prediction.ui
+
+# Text Browser Form
+pyuic5 -x -o gui_form_About_ui.py gui_form_About.ui
+pyuic5 -x -o gui_form_Literature_ui.py gui_form_Literature.ui
+
+# Groupboxes
+pyuic5 -x -o gui_groupbox_automated_phase.py gui_groupbox_automated_phase.ui
+
+# Widgets
+pyuic5 -x -o gui_widget_Dim_wall.py gui_widget_Dim_wall.ui
+pyuic5 -x -o gui_widget_Dim_cross_section.py gui_widget_Dim_cross_section.ui
+pyuic5 -x -o gui_widget_Dim_anchor.py gui_widget_Dim_anchor.ui
+pyuic5 -x -o gui_widget_Dim_strut.py gui_widget_Dim_strut.ui
+pyuic5 -x -o gui_widget_Dim_waler.py gui_widget_Dim_waler.ui
+pyuic5 -x -o gui_widget_Dim_wall_inserted_steel_profile.py gui_widget_Dim_wall_inserted_steel_profile.ui
+pyuic5 -x -o gui_widget_Dim_MIP_steel_profile.py gui_widget_Dim_MIP_steel_profile.ui
+pyuic5 -x -o gui_widget_Borelogs.py gui_widget_Borelogs.ui
+
+# Images for tooltips
+pyrcc5 -o images\resource_images_rc.py images\resource_images.qrc 
+Then go to the py file of ui to add the prefix 'gui.images' to import. See for example 'gui/gui_widget_Dim_wall.py'.

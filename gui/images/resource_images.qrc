@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/images">
+    <file>wall_data_selection_plaxis3d.PNG</file>
+    <file>wall_data_selection_plaxis2d.PNG</file>
+  </qresource>
+</RCC>

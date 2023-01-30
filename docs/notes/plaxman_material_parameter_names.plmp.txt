@@ -1,0 +1,100 @@
+_setproperties "Title" "training1" "Comments" "No comments" "UnitForce" "kN" "UnitLength" "m" "UnitTime" "s"  "ModelType" "Plane strain" "ElementType" "15-Noded"
+_initializerectangular SoilContour -25 -50 75 10
+_save "C:\ProgXP\Statik\plaxman\temp"
+_soilmat "MaterialName" "Sand_loose" "Colour"  13434828 "SoilModel" 4 "DrainageType" 0  "gammaUnsat" 18 "gammaSat" 19 "K0Determination" 1  "perm_primary_horizontal_axis" 0 "perm_vertical_axis" 0 "Cref" 1 "phi" 30 "psi" 0 "K0nc" 0.50001 "K0Primary" 0.50001 "K0Secondary" 0.50001 "Rinter" 0.67 "E50ref" 51998 "EoedRef" 42772 "EurRef" 155994 "powerm" 0.75 "G0ref" 194992 "gamma07" 0.0001
+_soilmat "MaterialName" "Sand_dense" "Colour"  10079487 "SoilModel" 3 "DrainageType" 0  "gammaUnsat" 19 "gammaSat" 20 "K0Determination" 1  "perm_primary_horizontal_axis" 0 "perm_vertical_axis" 0 "Cref" 20 "phi" 35 "psi" 5 "K0nc" 0.42644 "K0Primary" 0.42644 "K0Secondary" 0.42644 "Rinter" 0.67 "E50ref" 73581 "EoedRef" 65164 "EurRef" 220743 "powerm" 0.65
+_soilmat "MaterialName" "Gravel_dense" "Colour"  16763110 "SoilModel" 2 "DrainageType" 0  "gammaUnsat" 20 "gammaSat" 21 "K0Determination" 1  "perm_primary_horizontal_axis" 0 "perm_vertical_axis" 0 "Cref" 5 "phi" 40 "psi" 10 "Rinter" 0.67 "Eref" 100000 "nu" 0.25 "Eoed" 120000 "Gref" 40000 "K0Primary" 0.35723 "K0Secondary" 0.35723
+_soilmat "MaterialName" "Rock" "Colour"  192 "SoilModel" 10 "DrainageType" 0  "gammaUnsat" 20 "gammaSat" 21 "K0Determination" 1  "perm_primary_horizontal_axis" 0 "perm_vertical_axis" 0 "phi" 40 "psi" 10 "Rinter" 0.67 "Eref" 100000 "Gref" 40000 "nu" 0.25 "UnconfinedCompressiveStrength" 5000 "HoekBrownParameter" 10 "GeologicalStrengthIndex" 50 "DisturbanceFactor" 0 "MaximumDilitationAngle" 10 "K0Primary" 0.35723 "K0Secondary" 0.35723
+_platemat "MaterialName" "Dwall" "Colour"  6299648 "Elasticity" 0 "EA" 39600000 "EA2" 39600000 "EI" 4752000 "nu" 0.2 "d" 1.2 "w" 28.8 "Gref" 13750000
+_platemat "MaterialName" "spw90" "Colour"  10213316 "Elasticity" 0 "EA" 15268140.2964464 "EA2" 15268140.2964464 "EI" 772949.602507599 "nu" 0.2 "d" 0.779422863405995 "w" 15.2681402964464 "Gref" 8162097.13905398
+_platemat "MaterialName" "spw9032" "Colour"  192 "Elasticity" 0 "EA" 13995795.2717425 "EA2" 13995795.2717425 "EI" 708537.135631966 "nu" 0.2 "d" 0.779422863405995 "w" 15.2681402964464 "Gref" 7481922.37746613
+_anchormat "MaterialName" "an1" "Colour"  10079487 "Elasticity" 0 "EA" 163800 "Lspacing" 2.5
+_embeddedbeammat "MaterialName" "fi" "Colour"  192 "Tstart" 2356.1925 "Tend" 2356.1925 "Elasticity" 0 "E" 195000000 "Diameter" 1.5 "Lspacing" 2.5 "A" 1.767144375 "w" 1
+_plate (0 10) (0 -25)
+_rename lines[-1] "walls_sLine"
+_setmaterial plates[-1] Dwall
+_rename plates[-1]  "walls_s"
+_neginterface walls_sLine
+_posinterface walls_sLine
+_line (0 -25) (0 -50)
+_rename lines[-1] "walls_sLineLx"
+_line (0 -25) (-25 -25)
+_rename lines[-1] "walls_sLineLxY"
+_line (0 -14) (-25 -14)
+_borehole 0
+_rename Boreholes[-1] "BH01"
+_set BH01.Head 5
+_soillayer 0
+_setsoillayerlevel BH01 0 10
+_set Soillayers[-1].Soil.Material Sand_loose
+_setsoillayerlevel BH01 1 5
+_soillayer 0
+_set Soillayers[-1].Soil.Material Sand_dense
+_setsoillayerlevel BH01 2 -10
+_soillayer 0
+_set Soillayers[-1].Soil.Material Gravel_dense
+_setsoillayerlevel BH01 3 -40
+_soillayer 0
+_set Soillayers[-1].Soil.Material Rock
+_setsoillayerlevel BH01 4 -50
+
+_line (0 10) (75 10)
+_lineload (2.5 10) ( 75 10)
+rename lines[-1] "L1"
+_set lines[-1].LineLoad.qy_start -20
+_n2nanchor(0 8) (29.002 -5.524)
+_rename NodeToNodeAnchors[-1] "Anc1_free"
+_setmaterial (Anc1_free) an1
+_embeddedbeamrow (29.002 -5.524) (36.252 -8.905)
+_rename embeddedbeamrows[-1] "Anc1_bond"
+_setmaterial (Anc1_bond) fi
+_line (0 7.7) (-25 7.7)
+_n2nanchor(0 4) (27.189 -8.679)
+_rename NodeToNodeAnchors[-1] "anc2_free"
+_setmaterial (anc2_free) an1
+_embeddedbeamrow (27.189 -8.679) (34.439 -12.06)
+_rename embeddedbeamrows[-1] "anc2_bond"
+_setmaterial (anc2_bond) fi
+_line (0 3.7) (-25 3.7)
+_n2nanchor(0 0) (25.377 -11.833)
+_rename NodeToNodeAnchors[-1] "anc3_free"
+_setmaterial (anc3_free) an1
+_embeddedbeamrow (25.377 -11.833) (32.627 -15.214)
+_rename embeddedbeamrows[-1] "anc3_bond"
+_setmaterial (anc3_bond) fi
+_line (0 -0.3) (-25 -0.3)
+_n2nanchor(0 -4) (23.564 -14.988)
+_rename NodeToNodeAnchors[-1] "anc4_free"
+_setmaterial (anc4_free) an1
+_embeddedbeamrow (23.564 -14.988) (30.814 -18.369)
+_rename embeddedbeamrows[-1] "anc4_bond"
+_setmaterial (anc4_bond) fi
+_line (0 -4.3) (-25 -4.3)
+_n2nanchor(0 -8) (21.751 -18.143)
+_rename NodeToNodeAnchors[-1] "anc5_free"
+_setmaterial (anc5_free) an1
+_embeddedbeamrow (21.751 -18.143) (29.001 -21.524)
+_rename embeddedbeamrows[-1] "anc5_bond"
+_setmaterial (anc5_bond) fi
+_line (0 -8.3) (-25 -8.3)
+_n2nanchor(0 -11) (19.939 -20.298)
+_rename NodeToNodeAnchors[-1] "anc6_free"
+_setmaterial (anc6_free) an1
+_embeddedbeamrow (19.939 -20.298) (27.189 -23.679)
+_rename embeddedbeamrows[-1] "anc6_bond"
+_setmaterial (anc6_bond) fi
+_line (0 -11.3) (-25 -11.3)
+ GotoFlow
+_waterlevel (-12.5 -14.5) (-25 -14.5)
+_rename UserWaterLevels[-1] "FinalDewlevel"
+_waterlevel (-12.5 3.2) (-25 3.2)
+_rename UserWaterLevels[-1] "Water_at_3_2m"
+_waterlevel (-12.5 -0.8) (-25 -0.8)
+_rename UserWaterLevels[-1] "Water_at_m0_8m"
+_waterlevel (-12.5 -4.8) (-25 -4.8)
+_rename UserWaterLevels[-1] "Water_at_m4_8m"
+_waterlevel (-12.5 -8.8) (-25 -8.8)
+_rename UserWaterLevels[-1] "Water_at_m8_8m"
+_waterlevel (-12.5 -11.8) (-25 -11.8)
+_rename UserWaterLevels[-1] "Water_at_m11_8m"
+_gotostructures_save "C:\ProgXP\Statik\plaxman\temp"

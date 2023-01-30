@@ -1,0 +1,16 @@
+Anaconda is installed with default settings (Note, miniconda3 has problems with dll libraries)
+C:\Users\nya\AppData\Local\Continuum\anaconda3
+
+Open 'Anaconda Prompt'
+$conda list
+
+
+Current Plaxis's Python wrapper is implemented in Python 3.4, so let's create a py34 environment
+############ Manage python version      ############
+$conda create -n py34 python=3.4 anaconda
+$conda activate py34 	# to activate python3.4 environment
+$conda deactivate 	# to deactivate the environment
+
+############ Install necessary packages ############
+PyQt5 for GUI
+$conda install -c anaconda pyqtgrapth

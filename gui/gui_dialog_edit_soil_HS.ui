@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1090</width>
+    <height>331</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{background-color: rgb(0, 74, 127);}
+
+QTableWidget{background-color: rgb(255, 255, 255);}
+
+QCheckBox{background-color: rgb(255, 255, 255);}
+
+QWidget#widget{background-color: rgb(255, 255, 255);}
+
+QGroupBox{background-color: rgb(251, 185, 0);}
+
+QPushButton{background-color: rgb(205, 205, 205);}
+
+QLineEdit{background-color:rgb(255, 255, 255);}
+
+QLabel{background-color:rgb(215, 215, 215);}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>5</number>
+   </property>
+   <property name="topMargin">
+    <number>5</number>
+   </property>
+   <property name="rightMargin">
+    <number>5</number>
+   </property>
+   <property name="bottomMargin">
+    <number>5</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Soil properties</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="9">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>p&lt;sup&gt;ref&lt;/sup&gt; [kN/m&lt;sup&gt;2&lt;/sup&gt;]</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>E&lt;sub&gt;50&lt;/sub&gt;&lt;sup&gt;ref&lt;/sup&gt;/E&lt;sub&gt;oed&lt;/sub&gt;&lt;sup&gt;ref&lt;/sup&gt;</string>
+        </property>
+        <property name="indent">
+         <number>-1</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="11">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Update</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="11">
+       <widget class="QCheckBox" name="checkBox">
+        <property name="text">
+         <string>Correlations with ve[-]</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="6">
+       <widget class="QLineEdit" name="lineEdit_5"/>
+      </item>
+      <item row="0" column="4">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Load</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="10">
+       <widget class="QLineEdit" name="lineEdit_6"/>
+      </item>
+      <item row="1" column="10">
+       <widget class="QLineEdit" name="lineEdit_2"/>
+      </item>
+      <item row="0" column="11">
+       <widget class="QLabel" name="label_8">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The refernce oedometric stiffness modulus EoedRef is defined by &lt;span style=&quot; font-style:italic;&quot;&gt;ve&lt;/span&gt;, &lt;span style=&quot; font-style:italic;&quot;&gt;we&lt;/span&gt;, the reference pressure &lt;span style=&quot; font-style:italic;&quot;&gt;Pref&lt;/span&gt;, and the atmospheric pressure &lt;span style=&quot; font-style:italic;&quot;&gt;Pat&lt;/span&gt; by the relation &lt;span style=&quot; font-style:italic;&quot;&gt;EoedRef = ve * Pat * (Pref/Pat)^we&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;E50ref&lt;/span&gt;, &lt;span style=&quot; font-style:italic;&quot;&gt;EurRef&lt;/span&gt; will follow EoefRef by the respective ratios.&lt;/p&gt;&lt;p&gt;If correlation with &lt;span style=&quot; font-style:italic;&quot;&gt;ve&lt;/span&gt; is checked. The parameters &lt;span style=&quot; font-style:italic;&quot;&gt;phi&lt;/span&gt;, &lt;span style=&quot; font-style:italic;&quot;&gt;we&lt;/span&gt;, &lt;span style=&quot; font-style:italic;&quot;&gt;gammaSat&lt;/span&gt;, &lt;span style=&quot; font-style:italic;&quot;&gt;gammUnsat&lt;/span&gt; will follow the linear correlations with ve. At present, we test the correlations for poor-graded fine sand described in Table 1, Grundbau-Taschenbuch.&lt;/p&gt;&lt;p&gt;K0nc is updated following the relation&lt;span style=&quot; font-style:italic;&quot;&gt; K0nc = 1 - &lt;/span&gt;sin&lt;span style=&quot; font-style:italic;&quot;&gt;(phi)&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;Dilatancy &lt;span style=&quot; font-style:italic;&quot;&gt;psi&lt;/span&gt; is updated following the relation &lt;span style=&quot; font-style:italic;&quot;&gt;psi = phi - 30 &lt;/span&gt;if&lt;span style=&quot; font-style:italic;&quot;&gt; phi &amp;gt; 30; &lt;/span&gt;else&lt;span style=&quot; font-style:italic;&quot;&gt; psi = 0&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;The above relations take effects when you click on &lt;span style=&quot; font-weight:600;&quot;&gt;Update&lt;/span&gt;. After updating, soil parameters shown in the table are free to be modified by the user.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Information?</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="9">
+       <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>E&lt;sub&gt;ur&lt;/sub&gt;&lt;sup&gt;ref&lt;/sup&gt;/E&lt;sub&gt;50&lt;/sub&gt;&lt;sup&gt;ref&lt;/sup&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>ve [-]</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QLineEdit" name="lineEdit_3"/>
+      </item>
+      <item row="0" column="3">
+       <widget class="QComboBox" name="comboBox">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Cobbles</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Gravel, dense</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Gravel, medium</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Gravel, loose</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sand, dense</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sand, medium</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sand, loose</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Silt, hard</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Silt, stiff</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Silt, firm</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Silt, soft</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Silt, very soft</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Clay, hard</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Clay, stiff</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Clay, firm</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Clay, soft</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Clay, very soft</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Fill</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+      <item row="1" column="6">
+       <widget class="QLineEdit" name="lineEdit_4"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Material name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>we [-]</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>E&lt;sub&gt;oed&lt;/sub&gt;&lt;sup&gt;ref&lt;/sup&gt; [kN/m&lt;sup&gt;2&lt;/sup&gt;]</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="6">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>Select color</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="tableWidget"/>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
+     <property name="centerButtons">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

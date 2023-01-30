@@ -1,0 +1,6 @@
+py34 (package version: pyinstaller 3.5)
+$pyinstaller --onedir --windowed --icon moniman_logo.ico Moniman_py34.spec
+
+py37 (package version: pyinstaller 5.7.0)
+$pyinstaller --clean --noconfirm Moniman_py37.spec
+

@@ -1,0 +1,1 @@
+[["MaterialName", "Sand dense"], ["Colour", 15262369], ["SoilModel", 2], ["DrainageType", 0], ["gammaUnsat", 21], ["gammaSat", 22], ["perm_primary_horizontal_axis", 0.0001], ["perm_vertical_axis", 0.0001], ["Gref", 25000.0], ["nu", 0.3], ["cref", 0], ["phi", 35], ["psi", 5], ["K0Determination", 1], ["K0Primary", 0.42642356364895395], ["Rinter", 0.67]]
